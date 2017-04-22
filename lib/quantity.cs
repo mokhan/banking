@@ -20,6 +20,12 @@ public class Quantity
     return new Quantity(this.amount + converted.amount, this.unit);
   }
 
+  public Quantity subtract(Quantity other)
+  {
+    var converted = other.convert_to(this.unit);
+    return new Quantity(this.amount - converted.amount, this.unit);
+  }
+
   public bool Equals(Quantity other)
   {
     if (ReferenceEquals(null, other)) return false;

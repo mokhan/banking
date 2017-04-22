@@ -35,7 +35,7 @@ public class QuantitySpec
   }
 
   [Fact]
-  public void it_adds_to_quantities()
+  public void it_adds_two_quantities()
   {
     var result = new Quantity(100, Currency.CAD).plus(new Quantity(100, Currency.CAD));
     Assert.Equal(new Quantity(200, Currency.CAD), result);
@@ -46,5 +46,19 @@ public class QuantitySpec
   {
     var result = new Quantity(100, Currency.CAD).plus(new Quantity(50, Currency.USD));
     Assert.Equal(new Quantity(200, Currency.CAD), result);
+  }
+
+  [Fact]
+  public void it_subtracts_quantities()
+  {
+    var result = new Quantity(100, Currency.CAD).subtract(new Quantity(50, Currency.CAD));
+    Assert.Equal(new Quantity(50, Currency.CAD), result);
+  }
+
+  [Fact]
+  public void it_subtracts_CAD_and_USD()
+  {
+    var result = new Quantity(100, Currency.CAD).subtract(new Quantity(25, Currency.USD));
+    Assert.Equal(new Quantity(50, Currency.CAD), result);
   }
 }

@@ -14,6 +14,11 @@ public class Account
     this.entries.Add(new Deposit(quantity));
   }
 
+  public void withdraw(Quantity quantity)
+  {
+    this.entries.Add(new Withdrawal(quantity));
+  }
+
   public Quantity balance()
   {
     Quantity total = new Quantity(0, Currency.CAD);
@@ -42,5 +47,20 @@ public class Deposit : Entry
   public Quantity ApplyTo(Quantity quantity)
   {
     return quantity.plus(this.quantity);
+  }
+}
+
+public class Withdrawal : Entry
+{
+  Quantity quantity;
+
+  public Withdrawal(Quantity quantity)
+  {
+    this.quantity = quantity;
+  }
+
+  public Quantity ApplyTo(Quantity quantity)
+  {
+    return quantity.subtract(this.quantity);
   }
 }

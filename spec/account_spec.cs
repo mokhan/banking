@@ -12,4 +12,15 @@ public class AccountSpec
 
     Assert.Equal(new Quantity(700, Currency.CAD), account.balance());
   }
+
+  [Fact]
+  public void it_decreases_the_balance_after_a_withdrawal()
+  {
+    var account = new Account();
+    account.deposit(new Quantity(100.00, Currency.CAD));
+
+    account.withdraw(new Quantity(50.0, Currency.CAD));
+
+    Assert.Equal(new Quantity(50.0, Currency.CAD), account.balance());
+  }
 }

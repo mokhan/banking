@@ -27,5 +27,21 @@ namespace Acceptance
 
       Assert.Equal(new Quantity(9800, Currency.CAD), account.balance());
     }
+
+    [Fact]
+    public void case_three()
+    {
+      var account_1010 = new Account();
+      var account_5500 = new Account();
+
+      account_1010.deposit(new Quantity(7425, Currency.CAD));
+      account_5500.deposit(new Quantity(15000, Currency.CAD));
+      account_5500.withdraw(new Quantity(5000, Currency.CAD));
+      account_1010.transfer(new Quantity(7300, Currency.CAD), account_5500);
+      account_1010.deposit(new Quantity(13726, Currency.MXN));
+
+      Assert.Equal(new Quantity(1497.60, Currency.CAD), account_1010.balance());
+      Assert.Equal(new Quantity(17300.00, Currency.CAD), account_5500.balance());
+    }
   }
 }

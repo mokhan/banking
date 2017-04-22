@@ -19,6 +19,12 @@ public class Account
     this.entries.Add(new Withdrawal(quantity));
   }
 
+  public void transfer(Quantity quantity, Account to)
+  {
+    withdraw(quantity);
+    to.deposit(quantity);
+  }
+
   public Quantity balance()
   {
     Quantity total = new Quantity(0, Currency.CAD);

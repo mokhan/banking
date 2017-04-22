@@ -14,6 +14,12 @@ public class Quantity
     return new Quantity(unit.convert(this.amount, this.unit), unit);
   }
 
+  public Quantity plus(Quantity other)
+  {
+    var converted = other.convert_to(this.unit);
+    return new Quantity(this.amount + converted.amount, this.unit);
+  }
+
   public bool Equals(Quantity other)
   {
     if (ReferenceEquals(null, other)) return false;
@@ -35,5 +41,10 @@ public class Quantity
     {
       return (amount.GetHashCode()*397) ^ (unit != null ? unit.GetHashCode() : 0);
     }
+  }
+
+  public override string ToString()
+  {
+    return this.amount.ToString() + " " + this.unit.ToString();
   }
 }

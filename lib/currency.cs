@@ -23,4 +23,9 @@ public class Currency : UnitOfMeasure
 
     return amount;
   }
+
+  public override string ToString()
+  {
+    return this.pneumonic;
+  }
 }

@@ -33,4 +33,18 @@ public class QuantitySpec
     var result = new Quantity(10, Currency.MXN).convert_to(Currency.CAD);
     Assert.Equal(new Quantity(1.0, Currency.CAD), result);
   }
+
+  [Fact]
+  public void it_adds_to_quantities()
+  {
+    var result = new Quantity(100, Currency.CAD).plus(new Quantity(100, Currency.CAD));
+    Assert.Equal(new Quantity(200, Currency.CAD), result);
+  }
+
+  [Fact]
+  public void it_adds_CAD_and_USD()
+  {
+    var result = new Quantity(100, Currency.CAD).plus(new Quantity(50, Currency.USD));
+    Assert.Equal(new Quantity(200, Currency.CAD), result);
+  }
 }

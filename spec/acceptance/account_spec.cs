@@ -5,6 +5,17 @@ namespace Acceptance
   public class AccountSpec
   {
     [Fact]
+    public void case_one()
+    {
+      var account = new Account();
+
+      account.deposit(new Quantity(100, Currency.CAD));
+      account.deposit(new Quantity(300, Currency.USD));
+
+      Assert.Equal(new Quantity(700, Currency.CAD), account.balance());
+    }
+
+    [Fact]
     public void case_two()
     {
       var account = new Account();

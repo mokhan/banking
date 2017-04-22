@@ -35,38 +35,3 @@ public class Account
     return total;
   }
 }
-
-public interface Entry
-{
-  Quantity ApplyTo(Quantity quantity);
-}
-
-public class Deposit : Entry
-{
-  Quantity quantity;
-
-  public Deposit(Quantity quantity)
-  {
-    this.quantity = quantity;
-  }
-
-  public Quantity ApplyTo(Quantity quantity)
-  {
-    return quantity.plus(this.quantity);
-  }
-}
-
-public class Withdrawal : Entry
-{
-  Quantity quantity;
-
-  public Withdrawal(Quantity quantity)
-  {
-    this.quantity = quantity;
-  }
-
-  public Quantity ApplyTo(Quantity quantity)
-  {
-    return quantity.subtract(this.quantity);
-  }
-}

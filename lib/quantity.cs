@@ -9,6 +9,11 @@ public class Quantity
     this.unit = unit;
   }
 
+  public Quantity convert_to(UnitOfMeasure unit)
+  {
+    return new Quantity(unit.convert(this.amount, this.unit), unit);
+  }
+
   public bool Equals(Quantity other)
   {
     if (ReferenceEquals(null, other)) return false;
@@ -35,6 +40,7 @@ public class Quantity
 
 public interface UnitOfMeasure
 {
+  double convert(double amount, UnitOfMeasure unit);
 }
 
 public class Currency : UnitOfMeasure
@@ -50,7 +56,7 @@ public class Currency : UnitOfMeasure
     this.pneumonic = pneumonic;
   }
 
-  public double convert(double amount, Currency currency)
+  public double convert(double amount, UnitOfMeasure currency)
   {
     if (currency == Currency.USD) {
       return amount * 2;

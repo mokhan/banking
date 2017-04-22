@@ -23,6 +23,20 @@ public class QuantitySpec
   {
     Assert.NotEqual(new Quantity(100, Currency.CAD), new Quantity(100, Currency.USD));
   }
+
+  [Fact]
+  public void it_converts_USD_to_CAD()
+  {
+    var result = new Quantity(0.50, Currency.USD).convert_to(Currency.CAD);
+    Assert.Equal(new Quantity(1.0, Currency.CAD), result);
+  }
+
+  [Fact]
+  public void it_converts_MXN_to_CAD()
+  {
+    var result = new Quantity(10, Currency.MXN).convert_to(Currency.CAD);
+    Assert.Equal(new Quantity(1.0, Currency.CAD), result);
+  }
 }
 
 public class CurrencySpec

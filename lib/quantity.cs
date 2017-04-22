@@ -40,6 +40,7 @@ public interface UnitOfMeasure
 public class Currency : UnitOfMeasure
 {
   public static Currency CAD = new Currency("CAD");
+  public static Currency USD = new Currency("USD");
 
   string pneumonic;
 

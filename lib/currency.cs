@@ -11,7 +11,7 @@ public class Currency : UnitOfMeasure
     this.pneumonic = pneumonic;
   }
 
-  public double convert(double amount, UnitOfMeasure currency)
+  public decimal convert(decimal amount, UnitOfMeasure currency)
   {
     if (currency == Currency.USD) {
       return amount * 2;

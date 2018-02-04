@@ -23,15 +23,15 @@ public class QuantitySpec
   [Fact]
   public void it_converts_USD_to_CAD()
   {
-    var result = new Quantity(0.50, Currency.USD).convert_to(Currency.CAD);
-    Assert.Equal(new Quantity(1.0, Currency.CAD), result);
+    var result = new Quantity(0.50M, Currency.USD).convert_to(Currency.CAD);
+    Assert.Equal(new Quantity(1.0M, Currency.CAD), result);
   }
 
   [Fact]
   public void it_converts_MXN_to_CAD()
   {
     var result = new Quantity(10, Currency.MXN).convert_to(Currency.CAD);
-    Assert.Equal(new Quantity(1.0, Currency.CAD), result);
+    Assert.Equal(new Quantity(1.0M, Currency.CAD), result);
   }
 
   [Fact]

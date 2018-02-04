@@ -30,7 +30,7 @@ public class Account
     Quantity total = new Quantity(0, Currency.CAD);
     foreach (var entry in this.entries)
     {
-      total = entry.ApplyTo(total);
+      total = entry.apply_to(total);
     }
     return total;
   }

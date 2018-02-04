@@ -7,7 +7,7 @@ public class Withdrawal : Entry
     this.quantity = quantity;
   }
 
-  public Quantity ApplyTo(Quantity quantity)
+  public Quantity apply_to(Quantity quantity)
   {
     return quantity.subtract(this.quantity);
   }

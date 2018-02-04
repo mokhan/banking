@@ -19,11 +19,11 @@ namespace Acceptance
     public void case_two()
     {
       var account = new Account();
-      account.deposit(new Quantity(35000.0, Currency.CAD));
+      account.deposit(new Quantity(35000.0M, Currency.CAD));
 
-      account.withdraw(new Quantity(5000.0, Currency.MXN));
-      account.withdraw(new Quantity(12500.0, Currency.USD));
-      account.deposit(new Quantity(300.0, Currency.CAD));
+      account.withdraw(new Quantity(5000.0M, Currency.MXN));
+      account.withdraw(new Quantity(12500.0M, Currency.USD));
+      account.deposit(new Quantity(300.0M, Currency.CAD));
 
       Assert.Equal(new Quantity(9800, Currency.CAD), account.balance());
     }
@@ -40,8 +40,8 @@ namespace Acceptance
       account_1010.transfer(new Quantity(7300, Currency.CAD), account_5500);
       account_1010.deposit(new Quantity(13726, Currency.MXN));
 
-      Assert.Equal(new Quantity(1497.60, Currency.CAD), account_1010.balance());
-      Assert.Equal(new Quantity(17300.00, Currency.CAD), account_5500.balance());
+      Assert.Equal(new Quantity(1497.60M, Currency.CAD), account_1010.balance());
+      Assert.Equal(new Quantity(17300.00M, Currency.CAD), account_5500.balance());
     }
 
     [Fact]
@@ -56,10 +56,10 @@ namespace Acceptance
       account_0123.withdraw(new Quantity(70, Currency.USD));
       account_0456.deposit(new Quantity(23789, Currency.USD));
 
-      account_0456.transfer(new Quantity(23.75, Currency.CAD), account_0123);
+      account_0456.transfer(new Quantity(23.75M, Currency.CAD), account_0123);
 
-      Assert.Equal(new Quantity(33.75, Currency.CAD), account_0123.balance());
-      Assert.Equal(new Quantity(112554.25, Currency.CAD), account_0456.balance());
+      Assert.Equal(new Quantity(33.75M, Currency.CAD), account_0123.balance());
+      Assert.Equal(new Quantity(112554.25M, Currency.CAD), account_0456.balance());
     }
   }
 }

@@ -1,4 +1,4 @@
 public interface Entry
 {
-  Quantity ApplyTo(Quantity quantity);
+  Quantity apply_to(Quantity quantity);
 }

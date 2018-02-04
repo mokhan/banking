@@ -1,9 +1,9 @@
 public class Quantity
 {
-  double amount;
+  decimal amount;
   UnitOfMeasure unit;
 
-  public Quantity(double amount, UnitOfMeasure unit)
+  public Quantity(decimal amount, UnitOfMeasure unit)
   {
     this.amount = amount;
     this.unit = unit;

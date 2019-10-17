@@ -4,8 +4,10 @@ This code was written using .NET core on CentOS7.
 
 Install .NET core from [https://www.microsoft.com/net/core](https://www.microsoft.com/net/core).
 
-  $ ./bin/setup
-  $ ./bin/spec
+```bash
+$ ./bin/setup
+$ ./bin/spec
+```
 
 The expected output is included below for comparison.
 
